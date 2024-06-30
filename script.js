@@ -6,9 +6,9 @@ function showInput() {
 }
 
 function encryptText() {
-    const inputText = document.getElementById('input-text').value.trim().toLowerCase();
+    const inputText = document.getElementById('input-text').value.trim();
     if (isValidText(inputText)) {
-        const encryptedText = customEncrypt(inputText);
+        const encryptedText = customEncrypt(inputText.toLowerCase());
         displayOutput(encryptedText);
     } else {
         showAlert("Por favor, insira apenas letras minúsculas e sem acento.", 'error');
@@ -17,16 +17,12 @@ function encryptText() {
 
 function decryptText() {
     const inputText = document.getElementById('input-text').value.trim();
-    if (isValidText(inputText)) {
-        if (isValidEncryptedText(inputText)) {
-            const decryptedText = customDecrypt(inputText);
-            displayOutput(decryptedText);
-            showAlert("Texto descriptografado com sucesso.", 'success');
-        } else {
-            showAlert("Texto inválido para descriptografia.", 'error');
-        }
+    if (isValidEncryptedText(inputText)) {
+        const decryptedText = customDecrypt(inputText);
+        displayOutput(decryptedText);
+        showAlert("Texto descriptografado com sucesso.", 'success');
     } else {
-        showAlert("Por favor, insira um texto criptografado.", 'warning');
+        showAlert("Texto inválido para descriptografia.", 'error');
     }
 }
 
