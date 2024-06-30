@@ -17,9 +17,9 @@ function encryptText() {
 
 function decryptText() {
     const inputText = document.getElementById('input-text').value.trim();
-    if (inputText) {
-        const decryptedText = customDecrypt(inputText);
-        if (decryptedText) {
+    if (isValidText(inputText)) {
+        if (isValidEncryptedText(inputText)) {
+            const decryptedText = customDecrypt(inputText);
             displayOutput(decryptedText);
             showAlert("Texto descriptografado com sucesso.", 'success');
         } else {
@@ -32,6 +32,11 @@ function decryptText() {
 
 function isValidText(text) {
     const regex = /^[a-z\s]+$/;
+    return regex.test(text);
+}
+
+function isValidEncryptedText(text) {
+    const regex = /^(enter|imes|ai|ober|ufat|[a-z\s])*$/;
     return regex.test(text);
 }
 
