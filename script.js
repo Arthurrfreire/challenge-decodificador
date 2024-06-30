@@ -32,26 +32,8 @@ function isValidText(text) {
 }
 
 function isValidEncryptedText(text) {
-    const regex = /^(enter|imes|ai|ober|ufat|[a-z\s])*$/;
-    return regex.test(text) && isTextEncryptedProperly(text);
-}
-
-function isTextEncryptedProperly(text) {
-    const rules = {
-        'enter': 'e',
-        'imes': 'i',
-        'ai': 'a',
-        'ober': 'o',
-        'ufat': 'u'
-    };
-    const parts = text.split(/\s+/);
-    for (let part of parts) {
-        let decryptedPart = part.replace(/enter|imes|ai|ober|ufat/g, match => rules[match]);
-        if (!/^[a-z]+$/.test(decryptedPart)) {
-            return false;
-        }
-    }
-    return true;
+    const regex = /enter|imes|ai|ober|ufat/;
+    return regex.test(text);
 }
 
 function customEncrypt(text) {
