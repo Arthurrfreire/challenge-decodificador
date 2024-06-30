@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decodificador de Texto</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+</head>
+<body>
+    <div class="decodificador1-desktop">
+        <div class="rectangle1" id="output-container">
+            <div class="content-wrapper">
+                <img src="/imgs/1.PNG" alt="Nenhuma mensagem encontrada" class="center-image" id="placeholder-image">
+                <div class="nenhuma-mensagem-encontrada" id="output-text">Nenhuma mensagem encontrada</div>
+                <div class="description-text" id="description">
+                    Digite um texto que você deseja criptografar ou descriptografar.
+                </div>
+            </div>
+            <div id="copy-button-container" style="display: none;">
+                <button class="button decrypt" id="copy-button" onclick="copyToClipboard()">Copiar</button>
+            </div>
+        </div>
+        <div class="header">
+            <div class="logo">
+                <img src="/imgs/logo.png" alt="Logo">
+            </div>
+            <button class="button encrypt" onclick="resetPage()">Início</button>
+        </div>
+        <div class="digite-seu-texto" id="input-placeholder" onclick="showInput()">Digite seu texto</div>
+        <textarea id="input-text" style="display: none;"></textarea>
+        <div class="frame1">
+            <div class="bi-exclamation-circle-fill">
+                <img src="imgs/icon.png" alt="Exclamation Icon">
+            </div>
+            <div class="apenas-letras-min-sculas-e-sem-acento">Apenas letras minúsculas e sem acento.</div>
+        </div>
+        <div class="frame3">
+            <div class="button encrypt" onclick="encryptText()">Criptografar</div>
+            <div class="button decrypt" onclick="decryptText()">Descriptografar</div>
+        </div>
+    </div>
+    <footer>
+        Desenvolvido por Arthur Ramalho Freire 2024.
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
