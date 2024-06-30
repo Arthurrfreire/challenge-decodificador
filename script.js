@@ -22,7 +22,7 @@ function decryptText() {
         displayOutput(decryptedText);
         showAlert("Texto descriptografado com sucesso.", 'success');
     } else {
-        showAlert("Texto inválido para descriptografia.", 'error');
+        showAlert("Texto inválido para descriptografia. Certifique-se de que o texto está em letras minúsculas, sem acentos, sem caracteres especiais e foi criptografado.", 'error');
     }
 }
 
@@ -32,6 +32,10 @@ function isValidText(text) {
 }
 
 function isValidEncryptedText(text) {
+    const hasInvalidChars = /[A-ZÀ-ÿ0-9!@#$%^&*(),.?":{}|<>;]/.test(text);
+    if (hasInvalidChars) {
+        return false;
+    }
     const regex = /enter|imes|ai|ober|ufat/;
     return regex.test(text);
 }
